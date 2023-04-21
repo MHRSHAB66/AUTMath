@@ -41,8 +41,8 @@ public class AUTMath {
      * @param num2 the num 2
      * @return int
      */
-    public static int divide(int num1, int num2) {
-        return num1 / num2;
+    public static double divide(int num1, int num2) {
+        return (double) num1 / num2;
     }
 
     /**
@@ -52,11 +52,12 @@ public class AUTMath {
      * @return int
      */
     public static int factorial(int number) {
-        int result = 0;
+        int result = number;
 
-        for (int counter = 0; counter < number; counter++) {
-            result = multiply(result, number);
+        for (int counter = 1; counter < number; counter++) {
+            result = multiply(result, number-counter);
         }
+
         return result;
     }
 
@@ -68,13 +69,13 @@ public class AUTMath {
      * @return int
      */
     public static int pow(int base, int power) {
-        int result = 1;
+        int result = base;
 
-        for (int counter = 1; counter <= base; counter++) {
-            result = multiply(result, power);
+        for (int counter = 1; counter <= power; counter++) {
+            result = multiply(result , base);
         }
 
-        return result;
+        return result/2;
     }
 
     /**
@@ -84,10 +85,10 @@ public class AUTMath {
      * @return int
      */
     public static int fib(int index) {
-        if (index == 0 || index == 1) {
+        if (index == 0 || index == 1 ) {
             return index;
         }
 
-        return fib(index-1);
+        return  fib(index-1) + fib(index-2);
     }
 }
